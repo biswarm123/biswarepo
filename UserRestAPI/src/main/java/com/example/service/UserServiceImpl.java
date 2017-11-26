@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
 		User usr = new User(user.getfName()+""+localDate, user.getfName(), user.getlName(), user.getEmail(), user.getPinCode(), localDate, user.getIsActive());
 		Optional<User> objPresent = userRepo.findByEmailAndIsActive(user.getEmail(), true);
 		if(objPresent.isPresent()) {
-			return objPresent.get().getId();
+			return "userexist";
 		}else {
 			userRepo.save(usr);
 			return usr.getId();

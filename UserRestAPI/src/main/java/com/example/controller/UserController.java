@@ -31,8 +31,8 @@ public class UserController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 		LocalDate localDate = LocalDate.parse(user.getBirthDate(), formatter);
 		String userId = userService.createUser(user);
-		if(userId.equals(user.getfName()+""+localDate)) {
-			return new ApiResponse("User Already Exist", userId, HttpStatus.OK, true);
+		if(userId.equals("userexist")) {
+			return new ApiResponse("User Already Exist", user.getfName()+""+localDate, HttpStatus.OK, true);
 		}else {
 			return new ApiResponse("User Created Successfully", userId, HttpStatus.OK, true);
 		}
